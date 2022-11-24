@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+fieldset {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+fieldset table tr:first-child {
+    background: rgb(106, 106, 197);
+}
+
+fieldset h1 {
+    text-align: center
+}
+
+fieldset input {
+    width: 10vw;
+}
+
+fieldset nav {
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    margin-bottom: 5px;
+}
+
+fieldset table tr td {
+    text-align: center;
+}
