@@ -12,10 +12,9 @@ function adicionarElemento() {
 
     sectionCreated.id = "secao";
     sectionCreated.className = "classe-criada";
+    sectionCreated.innerHTML = quadro;
 
     body.appendChild(sectionCreated);
-
-    sectionCreated.innerHTML = quadro;
 
     imagem = document.getElementsByClassName("imagem")[controleImagem];
     imagem.setAttribute("src", "img-" + controleImagem + ".jpg");

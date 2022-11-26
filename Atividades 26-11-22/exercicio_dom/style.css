@@ -1,3 +1,37 @@
-body{
+body {
     font: normal 15px Arial;
+}
+
+body h1 {
+    text-align: center;
+}
+
+body section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 10px;
+    justify-content: center;
+}
+
+body section div {
+    min-width: 100px;
+    max-width: 200px;
+    min-height: 320px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body section div h2 {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+body section img {
+    width: 60%;
 }
