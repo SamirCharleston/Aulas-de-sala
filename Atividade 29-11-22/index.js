@@ -1,7 +1,11 @@
 let form = document.getElementsByTagName("form")[0];
 let fieldset = document.createElement("fieldset");
 let button = document.createElement("input");
+let totalDeVotos = document.createElement("h3");
 let funcaoAcessada = false;
+let agrupamentoGrafico;
+let nomeDoGrafico;
+let grafico;
 let labels = [];
 let inputs = [];
 let infoVotos = ["Votos Brancos: ", "Votos Nulos: ", "Votos Válidos: "];
@@ -40,6 +44,7 @@ function contarVotos() {
 
     let resultadoExibido;
     let tituloResultado;
+    let divAux;
     let valores = [];
     let somaDosValores = 0;
 
@@ -47,7 +52,8 @@ function contarVotos() {
         resultadoExibido = document.createElement("div");
         tituloResultado = document.createElement("h2");
 
-        fieldset.appendChild(resultadoExibido);
+
+        form.appendChild(resultadoExibido);
         resultadoExibido.appendChild(tituloResultado);
         tituloResultado.innerText = "Resultado:";
 
@@ -60,13 +66,43 @@ function contarVotos() {
     }
 
     for (i in valores) {
+        let cores = ["#487264", "#304a70", "#c2ce49"];
         valores[i] = (valores[i] * 100) / somaDosValores;
 
+        num = valores[i].toFixed(2);
+
         if (!funcaoAcessada) {
-            let nomeDoGrafico = document.createElement("label");
-            let grafico = document.createElement("div");
+            agrupamentoGrafico = document.createElement("div");
+            nomeDoGrafico = document.createElement("label");
+            grafico = document.createElement("div");
+            saldo = document.createElement("p");
+            totalDeVotos = document.createElement("h3");
+
+            resultadoExibido.appendChild(agrupamentoGrafico);
+            agrupamentoGrafico.appendChild(nomeDoGrafico);
+            agrupamentoGrafico.appendChild(grafico);
+            agrupamentoGrafico.appendChild(saldo);
+
+            agrupamentoGrafico.id = `agrupamento-grafico-${i}`;
+            grafico.id = `grafico-${i}`;
+
             nomeDoGrafico.innerText = infoVotos[i];
+            saldo.innerText = num + "%";
         }
+        document.getElementById(`agrupamento-grafico-${i}`).style.display = "flex";
+        document.getElementById(`agrupamento-grafico-${i}`).style.alignItems = "center";
+        document.getElementById(`grafico-${i}`).style.background = `${cores[i]}`;
+        document.getElementById(`grafico-${i}`).style.width = `${valores[i]}%`;
+        document.getElementById(`grafico-${i}`).style.height = "20px";
+
+    }
+
+    resultadoExibido.appendChild(totalDeVotos);
+
+    if (!funcaoAcessada) {
+
+        totalDeVotos.innerText = `Total de Votos válidos: ${somaDosValores}`;
+        button.style.display = "none";
     }
 
     funcaoAcessada = true;

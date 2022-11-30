@@ -1,6 +1,15 @@
+* {
+    font-family: 'Arial';
+}
+
 body {
     display: flex;
     justify-content: center;
+}
+
+body form #resultado-exibido label {
+    width: 120px;
+    font-size: 15px;
 }
 
 form fieldset {
@@ -16,5 +25,15 @@ fieldset input {
 
 h1 {
     text-align: center;
-    font-family: 'Arial';
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
 }
